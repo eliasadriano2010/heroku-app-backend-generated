@@ -17,14 +17,12 @@ public class MongoDatabaseSettings {
 	public MongoDatabaseSettings() {
 		super();
 		uri = new MongoClientURI(
-				"mongodb://heroku_n44skkbl:4rhd1j62j2625lrbjo8ds9e4bo@ds039195.mlab.com:39195/heroku_n44skkbl");
+				"mongodb://heroku_zgrwpxjv:drpqbqn066ot17lht9260id4qn@ds117829.mlab.com:17829/heroku_zgrwpxjv");
 		client = new MongoClient(uri);
 		database = client.getDatabase(uri.getDatabase());
 		collection = database.getCollection("default");
 	}
 
-
-	
 	public MongoDatabaseSettings(MongoClientURI uri, MongoClient client,
 			MongoDatabase database, MongoCollection<Document> collection) {
 		super();

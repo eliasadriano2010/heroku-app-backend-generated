@@ -56,7 +56,8 @@ private GenericDAOMongoDB<Battery> genericDAOMongoDBBattery;
 	@Get
 	public void list() {
 		try {
-			result.use(ExtJSJson.class).from(genericDAOMongoDBBattery.getEntities()).success().serialize();
+			result.use(ExtJSJson.class).from(genericDAOMongoDBBattery.getEntities())
+					.success().serialize();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
