@@ -8,8 +8,6 @@ import model.*;
 
 //model imports
 
-
-
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.bson.types.ObjectId;
 

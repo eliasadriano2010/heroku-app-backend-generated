@@ -8,8 +8,6 @@ import model.*;
 
 //model imports
 
-
-
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.bson.types.ObjectId;
 
@@ -112,21 +110,21 @@ private GenericDAOMongoDB<Storage> genericDAOMongoDBStorage;
 					gadgetDTO = genericDAOMongoDBGadget.getEntityById(gadget.getId());
 			}
 			gadgetDTO.setAdditionalFeatures(gadget.getAdditionalFeatures());
-			gadgetDTO.setAndroid(genericDAOMongoDBAndroid.getEntityById(gadget.getAndroid().getId()));
+			gadgetDTO.setAndroid(gadget.getAndroid());
 			gadgetDTO.setAvailability(gadget.getAvailability());
-			gadgetDTO.setBattery(genericDAOMongoDBBattery.getEntityById(gadget.getBattery().getId()));
-			gadgetDTO.setCamera(genericDAOMongoDBCamera.getEntityById(gadget.getCamera().getId()));
-			gadgetDTO.setConnectivity(genericDAOMongoDBConnectivity.getEntityById(gadget.getConnectivity().getId()));
+			gadgetDTO.setBattery(gadget.getBattery());
+			gadgetDTO.setCamera(gadget.getCamera());
+			gadgetDTO.setConnectivity(gadget.getConnectivity());
 			gadgetDTO.setDescription(gadget.getDescription());
-			gadgetDTO.setDisplay(genericDAOMongoDBDisplay.getEntityById(gadget.getDisplay().getId()));
-			gadgetDTO.setHardware(genericDAOMongoDBHardware.getEntityById(gadget.getHardware().getId()));
+			gadgetDTO.setDisplay(gadget.getDisplay());
+			gadgetDTO.setHardware(gadget.getHardware());
 			gadgetDTO.setImages(gadget.getImages());
 			gadgetDTO.setName(gadget.getName());
 			gadgetDTO.setHeight(gadget.getHeight());
 			gadgetDTO.setWidth(gadget.getWidth());
 			gadgetDTO.setLenght(gadget.getLenght());
 			gadgetDTO.setWeight(gadget.getWeight());
-			gadgetDTO.setStorage(genericDAOMongoDBStorage.getEntityById(gadget.getStorage().getId()));
+			gadgetDTO.setStorage(gadget.getStorage());
 			gadgetDTO.setSnippet(gadget.getSnippet());
 		
 			try {
@@ -243,7 +241,7 @@ private GenericDAOMongoDB<Storage> genericDAOMongoDBStorage;
 					
 					media.setMediaData(new String(Base64.encodeBase64(ByteStreams.toByteArray(file.getFile()))));
 					
-					gadget.setImages(media);
+					gadget.addImages(media);
 					
 					genericDAOMongoDBGadget.updateEntity(gadget, idGadget);
 					
@@ -266,7 +264,6 @@ private GenericDAOMongoDB<Storage> genericDAOMongoDBStorage;
 			@Consumes("application/json")
 			public void getImages(String idGadget){
 					//if object has images, send them to front-end, else, do nothing
-				
 				try{
 						 Gadget gadget =  genericDAOMongoDBGadget.getEntityById(idGadget);
 						 

@@ -129,7 +129,7 @@ private List<Media> images;
 			this.images = images;
 		} 
 		
-		public void setImages(Media images ) {
+		public void addImages(Media images ) {
 			if(this.images!=null){
 				this.images.add(images);
 			}else{
