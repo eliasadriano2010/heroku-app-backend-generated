@@ -17,7 +17,7 @@ public class MongoDatabaseSettings {
 	public MongoDatabaseSettings() {
 		super();
 		uri = new MongoClientURI(
-				"mongodb://heroku_zgrwpxjv:drpqbqn066ot17lht9260id4qn@ds117829.mlab.com:17829/heroku_zgrwpxjv");
+				"mongodb://heroku_pnx0gjpq:nd7u0rn7steb52ghv6c5esvem4@ds117839.mlab.com:17839/heroku_pnx0gjpq");
 		client = new MongoClient(uri);
 		database = client.getDatabase(uri.getDatabase());
 		collection = database.getCollection("default");
